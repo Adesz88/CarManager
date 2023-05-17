@@ -12,3 +12,8 @@ EntryDialog::~EntryDialog()
 {
     delete ui;
 }
+
+QString EntryDialog::getTitle()
+{
+    return ui->titleLineEdit->text();
+}

@@ -14,6 +14,7 @@ class EntryDialog : public QDialog
 public:
     explicit EntryDialog(QWidget *parent = nullptr);
     ~EntryDialog();
+    QString getTitle();
 
 private:
     Ui::EntryDialog *ui;

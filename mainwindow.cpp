@@ -1,26 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "entrydialog.h"
-#include "string.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
-    class User {
-    public:
-        unsigned age;
-        std::string name;
-
-        User() {
-            name = "somebody";
-            age = 20;
-        }
-    };
-
     ui->setupUi(this);
-    setCentralWidget(ui -> tableWidget);
-    User somebody;
+    setCentralWidget(ui->tableWidget);
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +18,14 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionAdd_entry_triggered()
 {
     EntryDialog dialog;
-    dialog.exec();
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        QTableWidgetItem *title = new QTableWidgetItem(dialog.getTitle());
+
+        unsigned next_row = ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(next_row);
+
+        ui->tableWidget->setItem(next_row, 0, title);
+    }
 }
 
