@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "entrydialog.h"
+#include <QFile>
+#include <QFileDialog>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -68,5 +71,39 @@ void MainWindow::on_tableWidget_cellDoubleClicked(int row, int column)
         ui->tableWidget->item(row, 1)->setText("rejected");
         ui->tableWidget->removeRow(row);
     }
+}
+
+
+void MainWindow::on_actionSave_triggered()
+{
+    QString filename = QFileDialog::getSaveFileName(this, "Save As");
+
+    if (!filename.isEmpty())
+    {
+        QFile file(filename);
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream out(&file);
+            unsigned row_count = ui->tableWidget->rowCount();
+
+            for (unsigned row = 0; row < row_count; ++row)
+            {
+                for (unsigned collumn = 0; collumn < 6; ++collumn)
+                {
+                    QString cell = ui->tableWidget->item(row, collumn)->text();
+                    out << cell << ';';
+                }
+
+                if (row < row_count - 1)
+                {
+                    out << Qt::endl;
+                }
+            }
+
+            file.close();
+        }
+    }
+
+    return;
 }
 

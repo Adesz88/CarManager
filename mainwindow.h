@@ -22,6 +22,8 @@ private slots:
 
     void on_tableWidget_cellDoubleClicked(int row, int column);
 
+    void on_actionSave_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

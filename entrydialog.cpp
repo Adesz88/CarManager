@@ -40,7 +40,7 @@ QString EntryDialog::getDate()
 
 QString EntryDialog::getDescription()
 {
-    return ui->descriptionTextEdit->toPlainText();
+    return ui->descriptionTextEdit->toPlainText().replace('\n', ' ');
 }
 
 void EntryDialog::setTitle(QString text)
