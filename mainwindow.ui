@@ -34,6 +34,11 @@
     </property>
     <column>
      <property name="text">
+      <string>Date</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
       <string>Title</string>
      </property>
     </column>
@@ -45,11 +50,6 @@
     <column>
      <property name="text">
       <string>Odometer</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Date</string>
      </property>
     </column>
     <column>

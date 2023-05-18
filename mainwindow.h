@@ -12,11 +12,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    bool edit;
+    unsigned current_item;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_actionAdd_entry_triggered();
+
+    void on_tableWidget_cellDoubleClicked(int row, int column);
 
 private:
     Ui::MainWindow *ui;
