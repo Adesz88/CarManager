@@ -107,3 +107,40 @@ void MainWindow::on_actionSave_triggered()
     return;
 }
 
+
+void MainWindow::on_actionOpen_triggered()
+{
+     QString filename = QFileDialog::getOpenFileName(this, "Open");
+
+    if (!filename.isEmpty())
+    {
+        QFile file(filename);
+        if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            QTextStream in(&file);
+
+            // clear table
+            unsigned rows = ui->tableWidget->rowCount();
+            for (int i = 0; i < rows; ++i) {
+                ui->tableWidget->removeRow(0);
+            }
+
+            while(!in.atEnd())
+            {
+                QString line = in.readLine();
+                QStringList cells = line.split(';');
+
+                unsigned next_row = ui->tableWidget->rowCount();
+                ui->tableWidget->insertRow(next_row);
+
+                for (int i = 0; i < cells.length(); ++i) {
+                    QTableWidgetItem *item = new QTableWidgetItem(cells[i]);
+                    ui->tableWidget->setItem(next_row, i, item);
+                }
+            }
+
+            file.close() ;
+        }
+    }
+}
+

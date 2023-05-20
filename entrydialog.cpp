@@ -5,6 +5,9 @@ EntryDialog::EntryDialog(QWidget *parent): QDialog(parent),
     ui(new Ui::EntryDialog)
 {
     ui->setupUi(this);
+
+    QDate date = QDate::currentDate();
+    ui->dateDateEdit->setDate(date);
     deleted = false;
 }
 
@@ -66,8 +69,7 @@ void EntryDialog::setOdometer(QString text)
 
 void EntryDialog::setDate(QString text)
 {
-    QDate date;
-    date.fromString(text);
+    QDate date = QDate::fromString(text, "yyyy. MM. dd.");
     ui->dateDateEdit->setDate(date);
 }
 
@@ -75,7 +77,6 @@ void EntryDialog::setDescription(QString text)
 {
     ui->descriptionTextEdit->setPlainText(text);
 }
-
 
 void EntryDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
