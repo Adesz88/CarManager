@@ -8,6 +8,7 @@ EntryDialog::EntryDialog(QWidget *parent): QDialog(parent),
 
     QDate date = QDate::currentDate();
     ui->dateDateEdit->setDate(date);
+    ui->dateDateEdit->setDisplayFormat("yyyy. MM. dd.");
     deleted = false;
 }
 
