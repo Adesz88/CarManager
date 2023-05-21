@@ -11,8 +11,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),
     ui->setupUi(this);
     setWindowTitle("Car manager");
     setCentralWidget(ui->tableWidget);
-    edit = false;
-    current_item = 0;
 }
 
 MainWindow::~MainWindow()
@@ -139,7 +137,7 @@ void MainWindow::on_actionOpen_triggered()
                 }
             }
 
-            file.close() ;
+            file.close();
         }
     }
     return;

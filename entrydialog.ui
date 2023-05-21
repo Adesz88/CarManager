@@ -25,9 +25,6 @@
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::NoButton</set>
-   </property>
    <property name="centerButtons">
     <bool>true</bool>
    </property>
@@ -35,19 +32,28 @@
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>401</width>
-     <height>262</height>
+     <x>10</x>
+     <y>20</y>
+     <width>381</width>
+     <height>251</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
+    <property name="fieldGrowthPolicy">
+     <enum>QFormLayout::ExpandingFieldsGrow</enum>
+    </property>
+    <property name="labelAlignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
     <item row="0" column="0">
      <widget class="QLabel" name="titleLabel">
       <property name="text">
        <string>Title</string>
       </property>
      </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="titleLineEdit"/>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="typeLabel">
@@ -58,6 +64,12 @@
     </item>
     <item row="1" column="1">
      <widget class="QComboBox" name="typeComboBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <item>
        <property name="text">
         <string>Refueling</string>
@@ -65,7 +77,37 @@
       </item>
       <item>
        <property name="text">
-        <string>Oil change</string>
+        <string>Parking</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Car wash</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Service</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fine</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Insurance</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Tax</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Toll</string>
        </property>
       </item>
      </widget>
@@ -79,6 +121,12 @@
     </item>
     <item row="2" column="1">
      <widget class="QSpinBox" name="priceSpinBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="maximum">
        <number>9999999</number>
       </property>
@@ -93,6 +141,12 @@
     </item>
     <item row="3" column="1">
      <widget class="QSpinBox" name="odometerSpinBox">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="maximum">
        <number>9999999</number>
       </property>
@@ -106,7 +160,17 @@
      </widget>
     </item>
     <item row="4" column="1">
-     <widget class="QDateEdit" name="dateDateEdit"/>
+     <widget class="QDateEdit" name="dateDateEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="calendarPopup">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
     <item row="5" column="0">
      <widget class="QLabel" name="descriptionLabel">
@@ -116,10 +180,14 @@
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QPlainTextEdit" name="descriptionTextEdit"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="titleLineEdit"/>
+     <widget class="QPlainTextEdit" name="descriptionTextEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

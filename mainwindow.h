@@ -12,8 +12,6 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    bool edit;
-    unsigned current_item;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

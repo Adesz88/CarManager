@@ -1,0 +1,7 @@
+2022. 10. 27.;Refueling;Refueling;241032;17320;25 L;
+2022. 10. 27.;Szeged parking;Parking;241032;300;;
+2022. 09. 11.;Light bulb change;Service;240067;12350;OSRAM NIGHT BREAKER SILVER H;
+2022. 07. 16.;Wash before trip;Car wash;239946;500;;
+2022. 07. 16.;Parking;Parking;239946;200;;
+2022. 06. 12.;Oil change;Service;239406;50000;5W40 oil;
+2022. 05. 14.;Refueling;Refueling;239106;15430;30 L;
