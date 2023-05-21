@@ -51,11 +51,12 @@ void EntryDialog::setTitle(QString text)
     ui->titleLineEdit->setText(text);
 }
 
-// needs an enum
-/*void EntryDialog::setType(QString text)
+void EntryDialog::setType(QString text)
 {
-    ui->typeComboBox->setCurrentIndex()
-}*/
+    int index = ui->typeComboBox->findText(text);
+    index == -1 ? ui->typeComboBox->setCurrentIndex(0)
+                : ui->typeComboBox->setCurrentIndex(index);
+}
 
 void EntryDialog::setPrice(QString text)
 {
@@ -78,9 +79,24 @@ void EntryDialog::setDescription(QString text)
     ui->descriptionTextEdit->setPlainText(text);
 }
 
+void EntryDialog::setUIForNewEntry()
+{
+    setWindowTitle("Add new entry");
+    ui->buttonBox->addButton("Add", QDialogButtonBox::ButtonRole::AcceptRole);
+    ui->buttonBox->addButton(QDialogButtonBox::Cancel);
+}
+
+void EntryDialog::setUIForEdit()
+{
+    setWindowTitle("Edit entry");
+    ui->buttonBox->addButton("Update", QDialogButtonBox::ButtonRole::AcceptRole);
+    ui->buttonBox->addButton(QDialogButtonBox::Cancel);
+    ui->buttonBox->addButton("Delete", QDialogButtonBox::ButtonRole::DestructiveRole);
+}
+
 void EntryDialog::on_buttonBox_clicked(QAbstractButton *button)
 {
-    if ((QPushButton*)button == ui->buttonBox->button(QDialogButtonBox::Discard))
+    if (button->text() == "Delete")
     {
         deleted = true;
         close();

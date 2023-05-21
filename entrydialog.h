@@ -30,10 +30,10 @@ public:
     void setOdometer(QString text);
     void setDate(QString text);
     void setDescription(QString text);
+    void setUIForNewEntry();
+    void setUIForEdit();
 
 private slots:
-
-
     void on_buttonBox_clicked(QAbstractButton *button);
 
 private:
